@@ -1,0 +1,5 @@
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+smelly/__pycache__/companySystem.cpython-39.pyc
+smelly/__pycache__/employee2.cpython-39.pyc
