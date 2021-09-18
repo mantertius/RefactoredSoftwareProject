@@ -21,4 +21,4 @@ Foram usados os seguinte padrões de design para refatoramento:
 
 ## Diferenças 💹
 
-Houveram muitas diferenças no código depois de implementados os *design patterns*. Você pode checar elas neste (commit) [https://github.com/mantertius/RefactoredSoftwareProject/commit/a4d45851e46725a717841fe3a012b5a66aa352b5].
+Houveram muitas diferenças no código depois de implementados os *design patterns*. Você pode checar elas neste [commit](https://github.com/mantertius/RefactoredSoftwareProject/commit/a4d45851e46725a717841fe3a012b5a66aa352b5).
