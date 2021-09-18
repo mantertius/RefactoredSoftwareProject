@@ -3,3 +3,37 @@
 .vscode/launch.json
 smelly/__pycache__/companySystem.cpython-39.pyc
 smelly/__pycache__/employee2.cpython-39.pyc
+.vscode/.ropeproject/config.py
+smelly/aa.py
+smelly/t1.py
+.vscode/.ropeproject/objectdb
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.refactored/
+
+# Local History for Visual Studio Code
+.history/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+refactored/__pycache__/command.cpython-39.pyc
+refactored/__pycache__/companySystem.cpython-39.pyc
+refactored/__pycache__/employee2.cpython-39.pyc
+refactored/__pycache__/menu.cpython-39.pyc
+refactored/__pycache__/strategy.cpython-39.pyc
+smelly/__pycache__/command.cpython-39.pyc
+smelly/__pycache__/menu.cpython-39.pyc
+smelly/__pycache__/strategy.cpython-39.pyc

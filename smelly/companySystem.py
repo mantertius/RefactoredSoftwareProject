@@ -1,13 +1,19 @@
 import calendar
+import strategy as sttg
+
 from tkinter.constants import TRUE
 from employee2 import *
 from datetime import date
-class CompanySystem:
+from tkinter import messagebox as mb
+class CompanySystem():
 	def __init__(self):
 		self.employedList = {}
 		self.accumulatedWage= {}
 		self._paydays = ['semanal 1 sexta','semanal 2 sexta','mensal $']
 		#self.employeePayday = {'dia' : [<empregado1>,emprega2]}
+	
+	def __str__(self) -> str:
+		return str(f' -------------- \nemployedList  = {self.employedList}\n')
 
 	def searchEmployeeByName(self, employeeName):
 		if employeeName in self.employedList.name:
@@ -18,6 +24,7 @@ class CompanySystem:
 	def searchEmployeeByID(self, _employeeID):
 		"""Returns the object if found. If not found, returns False"""
 		if self.employedList.get(_employeeID) != None:
+			print(f'FOUND!:{_employeeID}')
 			return self.employedList[_employeeID]
 		else:
 			return False
@@ -45,7 +52,10 @@ class CompanySystem:
 
 	def electronicData(self, arrival, leaving, employee) -> bool:
 		"""Recieves arrival, leaving and the object Employee. Returns boolean."""
-		if employee.type == 'hourist':
+		context = sttg.Context(sttg.employeeHourist)
+
+		context.checkValid([employee])
+		if context.checkValid([employee]):
 			workedHours = int(leaving) - int(arrival)
 			print(f"Horas trabalhadas: {workedHours}")
 			total = workedHours
@@ -55,27 +65,36 @@ class CompanySystem:
 				print(f'Horas extras: {extra}. Total a ser pago: {total}')
 				self.accumulatedWage[employee.companyID] += total
 				print(f'{total} adicionado em sua carteira.')
+				mb.showinfo(title='Success',message='Electronic point data sent to the system.')
 				return True
 		else:
+			mb.showerror(title='Failure',message='Employee is not hourist')
 			return False
 
 	def saleData(self,employee,saleValue):
 		"""Recieves employee Object and the Sale value. Returns boolean."""
-		if employee.type == 'commissioned':
+		context = sttg.Context(sttg.employeeCommissioned)
+		if context.checkValid([employee]):
 			commission = int(employee.commission)*int(saleValue)/100
 			self.accumulatedWage[employee.companyID] += commission
 			print(f'{commission} adicionado em sua carteira.')
-			return int(commission)
+			mb.showinfo(title='Success',message=f'Sale data sent to the system. {commission} added to the wallet')
+			return True
 		else:
+			mb.showerror(title='Failure',message='Employee not found.')
 			return False
-	
+			
 	def feeData(self,employee,feeValue):
 		"""Recieves employee Object and the Fee value. Returns boolean."""
-		if employee.unionStatus:
+		context = sttg.Context(sttg.employeeUnionStatusCheck)
+		if context.checkValid([employee]):
 			self.accumulatedWage[employee.companyID] -= int(feeValue)
 			print(f'{feeValue} retirado de sua carteira.')
-			return int(feeValue)
+			mb.showinfo(title='Success',message=f'Fee data sent to the system. {feeValue} removed from the wallet.')
+			return True
+
 		else:
+			mb.showerror(title='Failure',message='Employee does not belongs to Union')
 			return False
 
 	#def runPayroll(self,selectedPayday):
@@ -84,15 +103,14 @@ class CompanySystem:
 
 		#pass
 
-
+cs = CompanySystem()
 CompanySystem = CompanySystem()
-
 # print()
 # print('--------------------------------------------------------')
 # hourist = Employee('Nome1','Endereço1','hourist','10','weekly')
 # salaried = Employee('Nome2','Endereço2','salaried','1132')
-# commissioned = Employee('Nome3','Endereço3','commissioned','1132',commission=5,payday='bi-weekly')
-
+commissioned = Employee('Nome3','Endereço3','commissioned','1132',commission=5,payday='bi-weekly')
+#print(CompanySystem.employedList)
 # #id1 = test.getID()
 # idh = hourist.getID()
 # ids = salaried.getID()
@@ -104,7 +122,9 @@ CompanySystem = CompanySystem()
 # #CompanySystem.addEmployee(test)
 # CompanySystem.addEmployee(hourist)
 # CompanySystem.addEmployee(salaried)
-# CompanySystem.addEmployee(commissioned)
+CompanySystem.addEmployee(commissioned)
+cs.addEmployee(commissioned)
+a = commissioned.getID()
+#print(CompanySystem)
 # print('-------------------------------------------------------------')
 # print()
-
