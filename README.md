@@ -1,4 +1,4 @@
-# Projeto de Software Refatorado
+# Projeto de Software - Refatorado 🔥
 No projeto original, foram encontrados diversos **code smells** tais quais:
 1. Duplicated Code  
 2. Long parameter list
@@ -9,7 +9,7 @@ No projeto original, foram encontrados diversos **code smells** tais quais:
 8. Switch Statements
 9. Primitive Obsession
 
-# Refactoring
+# Refatoração 🧹
 Foram usados os seguinte padrões de design para refatoramento:
 - **Strategy**: Para cada botão de submissão que é apertado, uma nova janela é criada, e ela depende de algumas checagens. Tais checagens têm a estrutura geral semelhante, mas são diferentes em seu fim. Desta forma, decidi implementar o padrão de design complexo Strategy, pois pude utilizar de conceitos de herança e polimorfismo para diminuir consideravelmente o número de linhas utilizado, além de melhorar a organização.
 
@@ -18,3 +18,9 @@ Foram usados os seguinte padrões de design para refatoramento:
 - **Extract Class**: Muitas linhas de código eram repetidas para criar-se botões e seus frames. Dessa forma, criei uma classe que terceiriza estas ações e usei o padrão de design Command para lidar com os requests dos botões. Lidei também com *Primitive Obsession* e com *Long Class* usando este padrão de design
 
 - **Command**: Cada botão precisa executar um request único! Por isso, usei o padrão Command para organizar e simplificar o código do menu principal. 
+
+## Diferenças 💹
+
+Houveram muitas diferenças no código depois de implementados os *design patterns*. Você pode checar elas neste [commit][1].
+
+[1]: (https://github.com/mantertius/RefactoredSoftwareProject/commit/a4d45851e46725a717841fe3a012b5a66aa352b5)
