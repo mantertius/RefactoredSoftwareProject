@@ -3,3 +3,15 @@
 .vscode/launch.json
 smelly/__pycache__/companySystem.cpython-39.pyc
 smelly/__pycache__/employee2.cpython-39.pyc
+smelly/aa.py
+smelly/t1.py
+smelly/__pycache__/strategy.cpython-39.pyc
+smelly/__pycache__/menu.cpython-39.pyc
+refactored/__pycache__/strategy.cpython-39.pyc
+.vscode/.ropeproject/config.py
+.vscode/.ropeproject/objectdb
+refactored/__pycache__/command.cpython-39.pyc
+refactored/__pycache__/companySystem.cpython-39.pyc
+refactored/__pycache__/employee2.cpython-39.pyc
+refactored/__pycache__/menu.cpython-39.pyc
+smelly/__pycache__/command.cpython-39.pyc
